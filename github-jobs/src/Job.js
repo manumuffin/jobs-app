@@ -1,6 +1,6 @@
 //type 'rfc' for boilerplate component
 import React, { useState } from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, Badge, Collapse } from 'react-bootstrap'
 import ReactMarkdown from 'react-markdown'
 
 export default function Job({ job }) {
@@ -16,7 +16,7 @@ const [open, setOpen] = useState(false)
                                 {job.company}
                             </span>
                         </Card.Title>
-                        <Card.Subtitle className="text-muted mb-2"> // mb = margin bottom
+                        <Card.Subtitle className="text-muted mb-2"> {/* mb = margin bottom */}
                             {new Date(job.created_at).toLocaleDateString()}
                         </Card.Subtitle>
                         <Badge variant="secondary" className="mr-2">{job.type}</Badge>
@@ -36,7 +36,7 @@ const [open, setOpen] = useState(false)
                 </Card.Text>
                 <Collapse in={open}>
                     <div className="mt-4">
-                        <ReactMarkdown source={job.description} />
+                        <ReactMarkdown children={job.description} />
                     </div>
                 </Collapse>
             </Card.Body>    

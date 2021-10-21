@@ -29,7 +29,7 @@ export default function useFetchJobs(params, page) {
     const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true }) //takes function and initial state as params
 
     useEffect(() => {
-        const cancelToken1 = axios.cancelToken.source()
+        const cancelToken1 = axios.CancelToken.source()
         dispatch({ type: ACTIONS.MAKE_REQUEST }) //updates state
         axios.get(BASE_URL, {
             cancelToken: cancelToken1.token,
@@ -41,7 +41,7 @@ export default function useFetchJobs(params, page) {
             dispatch({ type: ACTIONS.ERROR, payload: { error: e } })
         })
 
-        const cancelToken2 = axios.cancelToken.source()
+        const cancelToken2 = axios.CancelToken.source()
         axios.get(BASE_URL, {
             cancelToken: cancelToken2.token,
             params: { markdown: true, page: page + 1, ...params }
