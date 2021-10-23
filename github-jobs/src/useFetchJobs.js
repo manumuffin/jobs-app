@@ -8,7 +8,7 @@ const ACTIONS = {
     UPDATE_HAS_NEXT_PAGE: 'update-has-next-page'
 }
 
-const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json'; //heroku App as proxy server to avoid CORS-error
+const BASE_URL = 'https://my-first-job-api.herokuapp.com/positions';
 
 function reducer(state, action) {
     switch (action.type) {
